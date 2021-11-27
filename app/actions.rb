@@ -29,7 +29,7 @@ end
 
 # When a browser requests the root of the application
 get '/' do
-    finstagram_post_shark = 
+    @finstagram_post_shark = 
     {
         username: "sharky_j",
         avatar_url: "http://naserca.com/images/sharky_j.jpg",
@@ -44,7 +44,7 @@ get '/' do
         }]
     }
 
-    finstagram_post_whale = 
+    @finstagram_post_whale = 
     {
         username: "kirk_whalum",
         avatar_url: "http://naserca.com/images/kirk_whalum.jpg",
@@ -59,7 +59,7 @@ get '/' do
         }]
     }
 
-    finstagram_post_marlin = 
+    @finstagram_post_marlin = 
     {
         username: "marlin_peppa",
         avatar_url: "http://naserca.com/images/marlin_peppa.jpg",
@@ -74,12 +74,10 @@ get '/' do
         }]
     }
     
-    [finstagram_post_shark, finstagram_post_whale, finstagram_post_marlin].to_s
-    # FizzBuzz(15)
-    # FizzBuzz(33)
-    # FizzBuzz(23)
-    # FizzBuzz(40)
-  # Stop
+    @finstagram_posts = [@finstagram_post_shark, @finstagram_post_whale, @finstagram_post_marlin]
+    erb(:index)
+
+ # Stop
   end
 
     # #if the time_ago_in_minutes is greater than 60 minutes
