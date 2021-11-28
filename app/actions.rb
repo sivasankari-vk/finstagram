@@ -35,6 +35,49 @@ get '/' do
 
  # Stop
 end
+
+get '/signup' do       # if a user navigates to the path "/signup",
+    @user = User.new   # setup empty @user object
+    erb(:signup)       # render "app/views/signup.erb"
+end
+
+post '/signup' do
+    
+    #GRAB USER INPUT VALUES FROM PARAMS
+    email       =   params[:email]
+    avatar_url  =   params[:avatar_url]
+    username    =   params[:username]
+    password    =   params[:password]
+
+    #All necessary params are present, goahead and instantiate a User object
+
+    #instantiate and save a User
+    @user = User.new({ 
+                    email: email, 
+                    avatar_url: avatar_url, 
+                    username: username, 
+                    password: password
+                    })
+            
+    # if all user params are present, user validations will pass and user can be saved
+    
+    if @user.save
+
+        "User #{username} saved successfully!"
+        #return readable representation of User object
+        #escape_html user.inspect
+
+    else
+
+        # display simple error message
+        #"Validation failed. One of the User input is not valid!"
+        #escape_html user.errors.full_messages
+        erb(:signup)
+
+    end
+
+end
+
     # @finstagram_post_shark = 
     # {
     #     username: "sharky_j",
