@@ -3,15 +3,15 @@
  #   File.read(File.join('app/views', 'index.html'))
 #end
 
-def humanized_time_ago(time_ago_in_minutes)
-    if time_ago_in_minutes >= 60 && time_ago_in_minutes < 120
-        "1 hour ago"
-    elsif time_ago_in_minutes >=120
-        "#{time_ago_in_minutes / 60 } hours ago"
-    else
-        "#{time_ago_in_minutes} minutes ago"
-    end
-end
+# def humanized_time_ago(time_ago_in_minutes)
+#     if time_ago_in_minutes >= 60 && time_ago_in_minutes < 120
+#         "1 hour ago"
+#     elsif time_ago_in_minutes >=120
+#         "#{time_ago_in_minutes / 60 } hours ago"
+#     else
+#         "#{time_ago_in_minutes} minutes ago"
+#     end
+# end
 
 def FizzBuzz(any_num)
     if (any_num % 3 == 0)
@@ -32,6 +32,9 @@ get '/' do
 
     @finstagram_posts = FinstagramPost.order(created_at: :desc)
     erb(:index)
+
+ # Stop
+end
     # @finstagram_post_shark = 
     # {
     #     username: "sharky_j",
@@ -79,8 +82,6 @@ get '/' do
     
     # @finstagram_posts = [@finstagram_post_shark, @finstagram_post_whale, @finstagram_post_marlin]
 
- # Stop
-  end
 
     # #if the time_ago_in_minutes is greater than 60 minutes
     # if time_ago_in_minutes > 60
